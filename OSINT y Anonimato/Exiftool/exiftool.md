@@ -1,44 +1,52 @@
-# Análisis de metadatos con Exiftool
+## Análisis de Metadatos con ExifTool
 
-Los metadatos o datos EXIF contienen información detallada sobre fotos, vídeos y audios digitales. Son útiles para investigaciones, ya que permiten situar eventos, identificar dispositivos usados y obtener datos relevantes. También es importante saber cómo borrar tus propios metadatos para proteger tu privacidad. Para manejar estos datos, se recomienda usar la herramienta ExifTool.
+Los metadatos (EXIF) contienen información detallada sobre fotos, vídeos y audios digitales.  
+Son útiles para investigaciones, ya que permiten situar eventos, identificar dispositivos y obtener datos relevantes.  
+También es importante saber cómo borrarlos para proteger la privacidad.
+
+---
 
 ## Instalación
 
-```
+```bash
 sudo apt-get install exiftool
 ```
-## USO
 
-Una vez lo hemos instalado, ahora toca utilizarlo en un archivo con el siguiente comando:
+---
 
-```
+## Uso Básico
+
+Ejecutar ExifTool sobre un archivo:
+
+```bash
 exiftool nombre_archivo
 ```
 
-<p align="center">
-<img src="./Img/foto.png">
-</p>
+<p align="center"> <img src="./Img/foto.png"> </p>
 
-Como podemos ver los los metadatos de la imagen como las medidas de la imagen etc.
+Esto muestra los metadatos de la imagen (dimensiones, dispositivo, etc.).
 
-Ahora pasamos a explicar como añadir o editar los metadatos de la imagen:
+---
 
+## Añadir o Editar Metadatos
+
+### Ejemplo 1
+
+```bash
+exiftool -rights="PRUEBA" -CopyrightNotice="Filter" foto.png
 ```
-exiftool -rights="PRUEBA" CopyrightNotice="Filter" foto.png
-```
 
-<p align="center">
-<img src="./Img/Editado 1.png">
-</p>
+<p align="center"> <img src="./Img/Editado 1.png"> </p>
 
-Para añadir solo escribimos un campo con un nuevo valor.
+### Ejemplo 2
 
-```
+```bash
 exiftool -description="PRUEBAAA" -CopyrightNotice="PRUEBAAA" Prueba.pdf
 ```
 
-<p align="center">
-<img src="./Img/Editado 2.png">
-</p>
+<p align="center"> <img src="./Img/Editado 2.png"> </p>
 
-Ahora primero seleccionamos el campo que deseamos editar en esta caso **Description** seleccionamos y le damos un nuevo valor.
+En este caso se selecciona el campo **Description** y se le asigna un nuevo valor.
+
+---
+

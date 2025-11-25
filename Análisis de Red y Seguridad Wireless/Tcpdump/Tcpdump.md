@@ -1,63 +1,91 @@
-# Tcpdump
+## Introducción
 
-TCPdump es una herramienta de captura de paquetes de red que se ejecuta en la línea de comandos de sistemas Unix y Linux. Utiliza la biblioteca libpcap para capturar paquetes de datos que pasan a través de una interfaz de red específica. TCPdump es muy flexible y permite a los usuarios especificar filtros para capturar solo el tráfico de interés.
+TCPdump es una herramienta de captura de paquetes de red que se ejecuta en la línea de comandos de sistemas Unix y Linux. Utiliza la biblioteca **libpcap** para capturar paquetes de datos que pasan a través de una interfaz de red específica.
 
-### Instalación
+Es muy flexible y permite a los usuarios especificar filtros para capturar solo el tráfico de interés.
 
-```
+---
+
+## Instalación
+
+```bash
 sudo apt-get install tcpdump
 ```
 
-### USO:
+---
 
-**Ejecución básica:** Para capturar tráfico en una interfaz de red específica, ejecuta el siguiente comando (reemplaza interfaz con el nombre de tu interfaz de red, por ejemplo, eth0):
+## Uso
 
-```
+### Ejecución básica
+
+Para capturar tráfico en una interfaz de red específica:
+
+```bash
 sudo tcpdump -i interfaz
 ```
 
-Si queremos especificar todas las interfaces de red, para capturar todo el tráfico de todas ellas a la vez, entonces tienes que poner la siguiente orden:
+Para capturar tráfico en todas las interfaces:
 
-```
+```bash
 sudo tcpdump -i any
 ```
 
-Si quieres capturar solamente un cierto número de paquetes, entonces deberás poner la siguiente orden:
+Para capturar solo un número específico de paquetes:
 
-```
+```bash
 sudo tcpdump -c NUMERO_PAQUETES
 ```
 
-**Capturar tráfico por IP o subred:** tcpdump nos permite filtrar por direcciones IP e incluso subredes, para ello, podemos poner la siguiente orden:
+---
 
-```
+### Capturar tráfico por IP o subred
+
+```bash
 sudo tcpdump -i NOMBRE_INTERFAZ host IP
 ```
 
-**Capturar tráfico por puerto y rangos:** En el caso de que quieras filtrar por puertos, ya sea un puerto únicamente o un rango de puertos, puedes hacerlo de la siguiente forma:
+---
 
-```
+### Capturar tráfico por puerto y rangos
+
+Por un puerto específico:
+
+```bash
 sudo tcpdump -i NOMBRE_INTERFAZ port NUMERO_PUERTO
 ```
 
-```
+Por un rango de puertos:
+
+```bash
 sudo tcpdump -i NOMBRE_INTERFAZ portrange PUERTO_INICIO PUERTO_FIN
 ```
 
-**Filtrado de paquetes:** Puedes aplicar filtros para capturar solo el tráfico que te interesa. Por ejemplo, para capturar solo paquetes ICMP (ping), puedes usar:
+---
 
-```
+### Filtrado de paquetes
+
+Para capturar solo paquetes ICMP (ping):
+
+```bash
 sudo tcpdump -i interfaz icmp
 ```
 
-**Guardar la captura en un archivo:** Puedes guardar la salida de TCPdump en un archivo para su análisis posterior. Por ejemplo:
+---
 
-```
+### Guardar la captura en un archivo
+
+```bash
 sudo tcpdump -i interfaz -w archivo.pcap
 ```
 
-**Lectura de archivos de captura:** Para analizar un archivo de captura previamente guardado, puedes utilizar el siguiente comando:
+---
 
+### Lectura de archivos de captura
+
+Para analizar un archivo previamente guardado:
+
+```bash
+sudo tcpdump -r archivo.pcap
 ```
-sudo tcpdump -i interfaz -w archivo.pcap
-```
+
+---
