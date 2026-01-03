@@ -2,55 +2,55 @@
 
 ### 🔹 Conceptos
 
-- [[Conceptos-Analisis-Malware]]
-- [[Terminologia-Malware]]
+- [[Conceptos de Análisis de Malware]]
+- [[Terminología de Malware]]
 
 ### 🔹 Análisis
 
-- [[Análisis-Dinámico]]
-- [[Análisis-Estático]]
+- [[Análisis Dinámico]]
+- [[Análisis Estático]]
 
 ### 🔹 Reversing
 
-- [[Introduccion-Reversing]]
+- [[Introducción al Reversing]]
 
 ### 🔹 Laboratorio
 
-- [[Configuracion-Laboratorio]]
+- [[Configuración de Laboratorio]]
 
 ---
 ## 🔐 02-Criptografía-Esteganografía
 
 ### 🔹 Conceptos
 
-- [[Certificados-Digitales]]
-- [[Cifrado-Asimétrico]]
-- [[Cifrado-Simétrico]]
-- [[Contraseñas-Linux]]
-- [[Cracking-Contraseñas]]
-- [[Fundamentos-Cracking]]
-- [[Hashing-Encriptacion]]
-- [[Teoría-Criptográfica]]
-- [[Windows-Contraseñas]]
-- [[Windows-Seguridad]]
+- [[Certificados Digitales]]
+- [[Cifrado Asimétrico]]
+- [[Cifrado Simétrico]]
+- [[Ciberseguridad/02-Criptografia y Esteganografia/Conceptos/Contraseñas de Linux|Contraseñas de Linux]]
+- [[Cracking de Contraseñas]]
+- [[Fundamentos de Cracking]]
+- [[Hashing de Encriptación]]
+- [[Teoría Criptográfica]]
+- [[Contraseñas de Windows]]
+- [[Seguridad de Windows]]
 
 ### 🔹 Ataques-y-Cracking
 
-- [[Contraseñas-Linux-Practica]]
-- [[Diccionarios-Contraseñas]]
-- [[Hashcat-Avanzado]]
-- [[Hydra-Bruteforce]]
-- [[Hydra-SSH]]
-- [[John-Cracking]]
-- [[John-Offline]]
-- [[Romper-Hashes]]
+- [[Contraseñas de Linux y Ataques]]
+- [[Diccionarios y Contraseñas]]
+- [[Hashcat Avanzado]]
+- [[Hydra Bruteforce]]
+- [[Hydra SSH]]
+- [[John Cracking]]
+- [[John Offline]]
+- [[Romper Hashes]]
 
 ### 🔹 Protocolos
 
 - [[AES]]
 - [[PGP]]
-- [[SSL-TLS]]
-- [[Vulnerabilidades-TLS]]
+- [[SSL y TLS]]
+- [[Vulnerabilidades TLS]]
 - [[WPA2]]
 - [[WPA3]]
 
@@ -59,49 +59,49 @@
 
 ### 🔹 Conceptos
 
-- [[Buenas-Practicas-Tor]]
-- [[Etica-Legal-Anonimato]]
-- [[Red-Onion-Tor]]
-- [[Surface-Deep-Dark-Web]]
-- [[Tails-Conceptos]]
+- [[Buenas Practicas de Tor]]
+- [[Ética Legal de Anonimato]]
+- [[Red Onion Tor]]
+- [[Surface Deep y Dark Web]]
+- [[Conceptos de Tails]]
 
 ### 🔹 Laboratorio
 
-- [[Tails-Instalacion]]
-- [[Whonix-Instalacion]]
+- [[Instalación de Tails]]
+- [[Instalación de Whonix]]
 
 ---
 ## 🧪 04-Pentesting
 
 ### 🔹 Conceptos
 
-- [[Buenas-Practicas-Enumeracion]]
-- [[Conceptos-Pentesting]]
-- [[Controles-Android]]
-- [[Controles-iOS]]
+- [[Buenas Practicas de Enumeración]]
+- [[Conceptos de Pentesting]]
+- [[Controles de Android]]
+- [[Controles de iOS]]
 - [[Etapas-Pentesting]]
-- [[Fundamentos-Hacking-Etico]]
-- [[Hipervisor-Hacking-Etico]]
-- [[TCP-UDP]]
-- [[Teoria-Dispositivos-Moviles]]
-- [[Teoria-Hacking-Movil]]
+- [[Fundamentos de Hacking Ético]]
+- [[Hipervisor de Hacking Etico]]
+- [[TCP y UDP]]
+- [[Teoría de Dispositivos Móviles]]
+- [[Teoría de Hacking Móvil]]
 
 ### 🔹 Laboratorio
 
-- [[Laboratorio-Casero]]
-- [[Redes-Virtuales]]
+- [[Laboratorio Casero]]
+- [[Redes Virtuales]]
 
 ### 🔹 Practicas
 
-- [[Descubrimiento-Hosts]]
-- [[Engagement-Movil]]
-- [[Enumeracion-FTP-SMTP]]
-- [[Enumeracion-SMB]]
-- [[Enumeracion-Web]]
-- [[Escaneo-Puertos]]
-- [[Herramientas-Android]]
+- [[Descubrimiento de Hosts]]
+- [[Engagement Movil]]
+- [[Enumeración de FTP y SMTP]]
+- [[Enumeración de SMB]]
+- [[Enumeración Web]]
+- [[Escaneo de Puertos]]
+- [[Herramientas de Android]]
 - [[Netcat]]
-- [[Sqlmap-Cracking]]
+- [[Cracking con SQLmap]]
 
 ---
 
@@ -109,33 +109,33 @@
 
 ### 🔹 Conceptos
 
-- [[Buenas-Practicas-Enumeracion]]
-- [[Conceptos-Pentesting]]
-- [[Controles-Android]]
-- [[Controles-iOS]]
+- [[Buenas Practicas de Enumeración]]
+- [[Conceptos de Pentesting]]
+- [[Controles de Android]]
+- [[Controles de iOS]]
 - [[Etapas-Pentesting]]
-- [[Fundamentos-Hacking-Etico]]
-- [[Hipervisor-Hacking-Etico]]
-- [[TCP-UDP]]
-- [[Teoria-Dispositivos-Moviles]]
-- [[Teoria-Hacking-Movil]]
+- [[Fundamentos de Hacking Ético]]
+- [[Hipervisor de Hacking Etico]]
+- [[TCP y UDP]]
+- [[Teoría de Dispositivos Móviles]]
+- [[Teoría de Hacking Móvil]]
 
 ### 🔹 Laboratorio
 
-- [[Laboratorio-Casero]]
-- [[Redes-Virtuales]]
+- [[Laboratorio Casero]]
+- [[Redes Virtuales]]
 
 ### 🔹 Practicas
 
-- [[Descubrimiento-Hosts]]
-- [[Engagement-Movil]]
-- [[Enumeracion-FTP-SMTP]]
-- [[Enumeracion-SMB]]
-- [[Enumeracion-Web]]
-- [[Escaneo-Puertos]]
-- [[Herramientas-Android]]
+- [[Descubrimiento de Hosts]]
+- [[Engagement Movil]]
+- [[Enumeración de FTP y SMTP]]
+- [[Enumeración de SMB]]
+- [[Enumeración Web]]
+- [[Escaneo de Puertos]]
+- [[Herramientas de Android]]
 - [[Netcat]]
-- [[Sqlmap-Cracking]]
+- [[Cracking con SQLmap]]
 
 ---
 ## 🛠️ 06-Herramientas
@@ -161,19 +161,19 @@
 
 ## 🔐 Criptografia
 
-- [[Cifrado-Python]]
-- [[Cifrador-C]]
+- [[Cifrador con Python]]
+- [[Cifrador con C]]
 
 ### 📂 Wireshark
 
-- [[Analisis-Paquetes]]
-- [[Captura-y-Filtros]]
-- [[Extraccion-Archivos]]
-- [[Flujo-TCP]]
+- [[Análisis de Paquetes]]
+- [[Captura y Filtros]]
+- [[Extracción de Archivos]]
+- [[Flujo TCP]]
 - [[Fundamentos]]
-- [[Hacking-con-Wireshark]]
+- [[Hacking con Wireshark]]
 - [[Instalacion]]
-- [[Tecnicas-Avanzadas]]
+- [[Técnicas Avanzadas]]
 - [[Wireshark]]
 
 ---
@@ -184,16 +184,16 @@
 
 #### 📂 Conceptos
 
-- [[Comprension-Sistema-Archivos-Linux]]
-- [[Servicios-Kali-Linux]]
-- [[Propiedad-Permisos-Linux]]
+- [[Comprensión de Sistema de Archivos Linux]]
+- [[Servicios de Kali Linux]]
+- [[Propiedad de Permisos Linux]]
 
 #### 📂 Comandos
 
-- [[Comandos-Basicos-Linux]]
-- [[Encontrar-Archivos-Kali-Linux]]
-- [[Grep-Tuberias]]
+- [[Comandos Básicos  de Linux]]
+- [[Encontrar Archivos en Kali Linux]]
+- [[Grep Tuberías]]
 
 #### 📂 Configuracion
 
-- [[Configuracion-Bash-Shell]]
+- [[Configuración de Bash Shell]]
