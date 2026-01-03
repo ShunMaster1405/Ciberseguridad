@@ -46,6 +46,6 @@ net.sniff on
 
 Esto mostrará todo el tráfico de todos los dispositivos conectados.
 
-![Informatica](Ciberseguridad/Análisis%20de%20Red%20y%20Seguridad%20Wireless/Bettercap/Img/trafico.png)
+![Informatica](Ciberseguridad/06-Herramientas/Bettercap/Img/trafico.png)
 
 ---

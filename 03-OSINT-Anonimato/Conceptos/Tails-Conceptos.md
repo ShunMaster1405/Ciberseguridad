@@ -1,15 +1,3 @@
-Perfecto, Sebastián 🙌.  
-Con tu archivo **“5. Entendiendo Tails (Lograr Anonimato).md”** lo adapté para **Obsidian**, siguiendo la misma lógica que aplicamos en los anteriores:
-
-- Quité el título principal porque Obsidian ya usa el nombre del archivo como encabezado.
-- Organicé la jerarquía con `##`, `###` según corresponda.
-- Corregí la estructura de listas para máxima legibilidad.
-- Añadí saltos de línea para que cada bloque quede claro y fácil de leer.
-
-Aquí tienes la versión ajustada:
-
----
-
 ## ¿Qué es Tails?
 
 **Tails** (The Amnesic Incognito Live System) es un sistema operativo portátil diseñado para preservar la privacidad y el anonimato.
