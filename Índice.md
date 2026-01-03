@@ -7,8 +7,8 @@
 
 ### 🔹 Análisis
 
-- [[Analisis-Dinamico]]
-- [[Analisis-Estatico]]
+- [[Análisis-Dinámico]]
+- [[Análisis-Estático]]
 
 ### 🔹 Reversing
 
@@ -104,9 +104,6 @@
 - [[Sqlmap-Cracking]]
 
 ---
-Perfecto, Sebastián. Aquí tienes el índice en formato Markdown para la cuarta carpeta: **Pentesting**, siguiendo tu estructura profesional con subcategorías claras.
-
----
 
 ## 🧪 04-Pentesting
 
@@ -147,7 +144,6 @@ Perfecto, Sebastián. Aquí tienes el índice en formato Markdown para la cuarta
 
 - [[Aircrack-ng]]
 - [[Bettercap]]
-- [[Criptografia]]
 - [[Deep-Sound]]
 - [[dirsearch]]
 - [[DVWA]]
@@ -162,6 +158,22 @@ Perfecto, Sebastián. Aquí tienes el índice en formato Markdown para la cuarta
 - [[Wafw00f]]
 - [[Wapiti]]
 - [[Whatweb]]
+
+## 🔐 Criptografia
+
+- [[Cifrado-Python]]
+- [[Cifrador-C]]
+
+### 📂 Wireshark
+
+- [[Analisis-Paquetes]]
+- [[Captura-y-Filtros]]
+- [[Extraccion-Archivos]]
+- [[Flujo-TCP]]
+- [[Fundamentos]]
+- [[Hacking-con-Wireshark]]
+- [[Instalacion]]
+- [[Tecnicas-Avanzadas]]
 - [[Wireshark]]
 
 ---
