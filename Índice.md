@@ -163,3 +163,25 @@ Perfecto, Sebastián. Aquí tienes el índice en formato Markdown para la cuarta
 - [[Wapiti]]
 - [[Whatweb]]
 - [[Wireshark]]
+
+---
+
+## 🖥️ 08.02-Sistemas-Operativos
+
+### 📂 Kali-Linux
+
+#### 📂 Conceptos
+
+- [[Comprension-Sistema-Archivos-Linux]]
+- [[Servicios-Kali-Linux]]
+- [[Propiedad-Permisos-Linux]]
+
+#### 📂 Comandos
+
+- [[Comandos-Basicos-Linux]]
+- [[Encontrar-Archivos-Kali-Linux]]
+- [[Grep-Tuberias]]
+
+#### 📂 Configuracion
+
+- [[Configuracion-Bash-Shell]]

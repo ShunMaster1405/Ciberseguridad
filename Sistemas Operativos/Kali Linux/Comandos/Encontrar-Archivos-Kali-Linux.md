@@ -1,14 +1,3 @@
-Perfecto, Sebastián 🙌.  
-Con tu archivo **“3. Encontrar Archivos en Kali Linux.md”** lo adapté para **Obsidian**, siguiendo la misma lógica que aplicamos en los anteriores:
-
-- Mantengo la jerarquía clara con `##` y `###`.
-- Bloques de código organizados y con ejemplos directos.
-- Separación por secciones para máxima legibilidad.
-
-Aquí tienes la versión ajustada:
-
----
-
 ## Comando `updatedb` y `locate`
 
 ```bash
