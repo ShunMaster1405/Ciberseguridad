@@ -203,6 +203,6 @@
 - [[Cortex XSIAM]]
 - [[Elementos SOC 1]]
 - [[Elementos SOC 2]]
-- [[Introduccion SOC]]
+- [[Introducción SOC]]
 - [[SOAR]]
 - [[XSOAR y gestión de inteligencia de amenazas]]
