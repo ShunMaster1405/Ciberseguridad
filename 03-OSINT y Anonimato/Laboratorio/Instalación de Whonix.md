@@ -1,124 +1,253 @@
 ## ¿Qué es Whonix?
 
-**Whonix** es un sistema operativo orientado a la privacidad que consta de dos máquinas virtuales:
+**Whonix** es un sistema operativo orientado a la privacidad que consta de **dos máquinas virtuales** que trabajan en conjunto para garantizar el anonimato completo.
 
-- Whonix-Gateway: ejecuta Tor y actúa como puerta de enlace
-- Whonix-Workstation: estación de trabajo completamente aislada
+### Componentes Principales
 
-### Ventajas
+#### **Whonix-Gateway**
 
-- Aislamiento completo entre red y aplicaciones
-- Prevención de leaks (imposible filtrar la IP real)
-- Configuración automática de Tor
-- Actualizaciones seguras y anónimas
+- Ejecuta **Tor** como puerta de enlace
+- Maneja toda la conectividad de red
+- Proporciona aislamiento de red
+
+#### **Whonix-Workstation**
+
+- Estación de trabajo **completamente aislada**
+- Todo el tráfico pasa por Gateway
+- No tiene acceso directo a internet
+
+---
+
+### Ventajas de Whonix
+
+- **Aislamiento completo** entre red y aplicaciones
+- **Prevención de leaks** - Imposible filtrar la IP real
+- **Configuración automática** de Tor
+- **Actualizaciones seguras** y anónimas
 
 ---
 
 ## Requisitos del Sistema
 
-### Hardware mínimo
+### Hardware Mínimo
 
-- RAM: 2GB (recomendado 4GB+)
-- Almacenamiento: 20GB libres
-- Procesador con soporte de virtualización
-- VT-x (Intel) o AMD-V habilitado en BIOS
+- **RAM** - 2GB mínimo (recomendado **4GB+**)
+- **Almacenamiento** - 20GB libres
+- **Procesador** - Con soporte de virtualización
+- **Virtualización** - VT-x (Intel) o AMD-V habilitado en BIOS
 
-### Software necesario
+---
 
-- Hipervisor: VirtualBox, VMware Workstation o KVM
-- Sistema operativo host: Windows, macOS o Linux
-- Conexión a internet para descargas y actualizaciones
+### Software Necesario
+
+- **Hipervisor** - VirtualBox, VMware Workstation o KVM
+- **Sistema operativo host** - Windows, macOS o Linux
+- **Conexión a internet** - Para descargas y actualizaciones
 
 ---
 
 ## Instalación Paso a Paso
 
-### Paso 1: Preparación del entorno
+### Paso 1: Preparación del Entorno
 
-- Descargar VirtualBox desde el sitio oficial
-- Instalar y reiniciar si es necesario
-- Habilitar virtualización en BIOS/UEFI (VT-x, AMD-V)
+#### Instalar VirtualBox
+
+- Descargar desde el **sitio oficial**
+- Instalar y **reiniciar** si es necesario
+- Verificar instalación correcta
+
+#### Habilitar Virtualización
+
+- Acceder a **BIOS/UEFI**
+- Habilitar **VT-x** (Intel) o **AMD-V** (AMD)
+- Guardar y reiniciar
+
+---
 
 ### Paso 2: Obtener Whonix
 
-- Descargar desde `https://www.whonix.org/download/`
-- Obtener Whonix-Gateway y Whonix-Workstation
-- Verificar integridad con checksums SHA256
+#### Descarga
+
+- Visitar `https://www.whonix.org/download/`
+- Descargar **Whonix-Gateway** y **Whonix-Workstation**
+- Seleccionar versión para VirtualBox
+
+#### Verificación
+
+- Verificar integridad con **checksums SHA256**
+- Confirmar autenticidad de los archivos
+
+---
 
 ### Paso 3: Importar en VirtualBox
 
-- Abrir VirtualBox → Archivo → Importar servicio virtualizado
-- Importar primero Gateway, luego Workstation
-- Revisar configuración antes de confirmar
+#### Proceso de Importación
 
-### Paso 4: Configuración de red
+1. Abrir VirtualBox
+2. **Archivo → Importar servicio virtualizado**
+3. Importar primero **Gateway**, luego **Workstation**
+4. Revisar configuración antes de confirmar
 
-- Gateway: Adaptador 1 NAT, Adaptador 2 Red interna “Whonix”
-- Workstation: Adaptador 1 Red interna “Whonix” (sin acceso directo a internet)
+---
 
-### Paso 5: Primera ejecución
+### Paso 4: Configuración de Red
 
-- Arrancar primero Gateway y esperar configuración de Tor
-- Verificar conexión Tor
-- Iniciar Workstation y comprobar comunicación interna
+Esta configuración es **crítica** para el funcionamiento y seguridad de Whonix.
+
+#### **Whonix-Gateway**
+
+- **Adaptador 1:** NAT (conexión a internet)
+- **Adaptador 2:** Red interna **"Whonix"**
+
+#### **Whonix-Workstation**
+
+- **Adaptador 1:** Red interna **"Whonix"** (sin acceso directo a internet)
+- No configurar más adaptadores
+
+---
+
+### Paso 5: Primera Ejecución
+
+#### Iniciar Gateway
+
+1. Arrancar **Whonix-Gateway** primero
+2. Esperar **configuración automática** de Tor
+3. Verificar **conexión Tor** establecida
+4. Confirmar que el estado es "Connected"
+
+#### Iniciar Workstation
+
+1. Iniciar **Whonix-Workstation**
+2. Comprobar **comunicación interna** con Gateway
+3. Verificar que todo el tráfico pasa por Tor
 
 ---
 
 ## Configuración Avanzada
 
-### Gateway
+### Whonix-Gateway
 
-- Acceder a “Tor Control Panel”
-- Configurar puertos, bridges (censura), o proxy intermedio
+#### Tor Control Panel
 
-### Workstation
+- Acceder al **"Tor Control Panel"**
+- Configurar opciones avanzadas:
+    - **Puertos personalizados**
+    - **Bridges** (para evasión de censura)
+    - **Proxy intermedio** adicional
 
-- Actualizar sistema desde terminal o gestor gráfico
-- Instalar software adicional vía gestor de paquetes (descarga por Tor)
+---
+
+### Whonix-Workstation
+
+#### Actualización del Sistema
+
+- Actualizar desde **terminal** o gestor gráfico
+- Todas las descargas pasan por Tor automáticamente
+
+#### Instalación de Software
+
+- Usar **gestor de paquetes** (APT)
+- Todo el software se descarga por Tor
+- Mantener sistema actualizado
 
 ---
 
 ## Integración con Kali Linux
 
-### Método 1: Kali como Workstation personalizada
+### Método 1: Kali como Workstation Personalizada
 
-- Crear VM con Kali Linux
-- Configurar red interna “Whonix”
-- Proxy manual:
-    - HTTP/HTTPS → 10.152.152.10:8118
-    - SOCKS → 10.152.152.10:9050
+Usar Kali Linux en lugar de Whonix-Workstation para herramientas de pentesting.
+
+#### Configuración
+
+1. Crear VM con **Kali Linux**
+2. Configurar red interna **"Whonix"**
+3. Configurar **proxy manual:**
+    - HTTP/HTTPS → `10.152.152.10:8118`
+    - SOCKS → `10.152.152.10:9050`
+
+---
 
 ### Método 2: Uso de Proxychains
 
-- Instalar `proxychains4`
-- Configurar archivo con:
+Forzar aplicaciones de Kali a usar Tor mediante Proxychains.
+
+#### Configuración
+
+**Instalar Proxychains:**
+
+```bash
+apt install proxychains4
+```
+
+**Configurar archivo `/etc/proxychains4.conf`:**
 
 ```
 socks5 10.152.152.10 9050
 ```
 
-- Usar anteponiendo `proxychains4` a los comandos
+**Uso:**
 
-### Método 3: Configuración global
+```bash
+proxychains4 nmap -sT ejemplo.com
+proxychains4 firefox
+```
 
-- Configurar proxy del sistema para usar Gateway de Whonix
-- Aplicar a todas las aplicaciones
+---
+
+### Método 3: Configuración Global
+
+Configurar todo el sistema Kali para usar Whonix Gateway.
+
+#### Proceso
+
+- Configurar **proxy del sistema** para usar Gateway
+- Aplicar configuración a **todas las aplicaciones**
+- Verificar que todo el tráfico pasa por Tor
 
 ---
 
 ## Verificación y Pruebas
 
-### Pruebas de funcionamiento
+### Pruebas de Funcionamiento
 
-- IP: comprobar que sea distinta a la real
-- DNS: confirmar que consultas pasan por Tor
-- Aplicaciones: verificar que todo el tráfico use Tor
-- Aislamiento: Workstation no debe acceder directo a internet
+#### **Verificar IP**
 
-### Herramientas de verificación
+- Comprobar que sea **distinta a la IP real**
+- Usar sitios como whatismyipaddress.com
 
-- Navegador web (ej. whatismyipaddress.com)
-- Herramientas de red
-- Logs del sistema
+#### **DNS**
+
+- Confirmar que consultas pasan por **Tor**
+- No debe haber leaks de DNS
+
+#### **Aplicaciones**
+
+- Verificar que **todo el tráfico** use Tor
+- Probar múltiples aplicaciones
+
+#### **Aislamiento**
+
+- Workstation **no debe acceder** directo a internet
+- Todo debe pasar por Gateway
+
+---
+
+### Herramientas de Verificación
+
+#### Navegador Web
+
+- Visitar `https://check.torproject.org/`
+- Confirmar conexión Tor activa
+
+#### Herramientas de Red
+
+- `curl --socks5 10.152.152.10:9050 https://check.torproject.org/`
+- Verificar IP anónima
+
+#### Logs del Sistema
+
+- Revisar logs de Tor en Gateway
+- Monitorear conexiones en Workstation
 
 ---

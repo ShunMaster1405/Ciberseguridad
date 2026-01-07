@@ -46,6 +46,6 @@ net.sniff on
 
 Esto mostrará todo el tráfico de todos los dispositivos conectados.
 
-![Informatica](Ciberseguridad/06-Herramientas/Bettercap/Img/trafico.png)
+![Informatica](Ciberseguridad/Herramientas/Bettercap/Img/trafico.png)
 
 ---

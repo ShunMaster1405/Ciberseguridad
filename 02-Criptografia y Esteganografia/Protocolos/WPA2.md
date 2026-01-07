@@ -1,182 +1,160 @@
 ## Introducción
 
-**WPA2 (Wi-Fi Protected Access 2)** es el estándar de seguridad para redes inalámbricas que reemplazó a WEP y WPA.  
-Basado en el estándar IEEE 802.11i, proporciona cifrado robusto y autenticación para redes WiFi.
+**WPA3 (Wi-Fi Protected Access 3)** es la última generación de protocolos de seguridad para redes inalámbricas, lanzado en 2018 por la Wi-Fi Alliance.
+
+Representa una mejora significativa sobre WPA2 en términos de seguridad y funcionalidad.
 
 ---
 
-## Arquitectura WPA2
+## Características Principales
 
-### Componentes Principales
+### SAE (Simultaneous Authentication of Equals)
 
-**1. Cifrado AES-CCMP**
+**Características:**
 
-- Utiliza AES en modo Counter with CBC-MAC Protocol
-- Tamaño de bloque: 128 bits
-- Proporciona confidencialidad e integridad
-
-**2. Autenticación**
-
-- **WPA2-Personal (PSK)**: clave pre-compartida
-- **WPA2-Enterprise (802.1X)**: autenticación por servidor
-
-**3. Gestión de Claves**
-
-- Derivación de claves dinámicas
-- Renovación periódica de claves
-- Jerarquía de claves robusta
+- Reemplaza el **4-way handshake** de WPA2
+- **Protección** contra ataques offline de diccionario
+- **Autenticación mutua** entre dispositivos
+- Hace inviables los ataques offline incluso con contraseñas débiles
 
 ---
 
-## Proceso de Autenticación WPA2
+### Cifrado Individualizado
 
-### WPA2-Personal (PSK)
+**Características:**
 
-```text
-1. Cliente solicita conexión al AP
-2. AP envía challenge
-3. Cliente deriva claves a partir de PSK
-4. Intercambio de 4-way handshake:
-   - Mensaje 1: AP → Cliente (ANonce)
-   - Mensaje 2: Cliente → AP (SNonce + MIC)
-   - Mensaje 3: AP → Cliente (GTK + MIC)
-   - Mensaje 4: Cliente → AP (Confirmación)
-5. Establecimiento de comunicación cifrada
-```
-
-### WPA2-Enterprise (802.1X)
-
-```text
-1. Cliente se conecta al AP
-2. AP actúa como proxy hacia servidor RADIUS
-3. Autenticación EAP (TLS, PEAP, TTLS)
-4. Servidor RADIUS valida credenciales
-5. Distribución de claves dinámicas
-6. Establecimiento de túnel cifrado
-```
+- Cada dispositivo tiene su propia **clave de cifrado**
+- Si un dispositivo es comprometido, otros permanecen **seguros**
+- Uso de **claves dinámicas** por sesión
 
 ---
 
-## Jerarquía de Claves WPA2
+### Forward Secrecy
 
-### Claves Principales
+**Características:**
 
-**1. PMK (Pairwise Master Key)**
-
-- WPA2-Personal: `PMK = PBKDF2(passphrase, ssid, 4096, 256)`
-- WPA2-Enterprise: derivada del servidor de autenticación
-
-**2. PTK (Pairwise Transient Key)**  
-Incluye:
-
-- KCK (Key Confirmation Key)
-- KEK (Key Encryption Key)
-- TK (Temporal Key)
-
-**3. GTK (Group Temporal Key)**
-
-- Usada para tráfico multicast/broadcast
-- Compartida entre clientes
-- Renovada periódicamente
+- Las claves pasadas **no pueden** desencriptar comunicaciones futuras
+- **Generación dinámica** de claves
+- Limita el impacto de compromisos de clave
 
 ---
 
-## Cifrado AES-CCMP
+## Modos de Operación
 
-### Características
+### WPA3-Personal
 
-- Algoritmo: AES en modo Counter with CBC-MAC
-- Tamaño de clave: 128 bits
-- Autenticación: CBC-MAC
-- Integridad: MIC de 64 bits
+**Características:**
 
-### Proceso de Cifrado
-
-1. Construcción del nonce
-2. Cifrado con AES-CTR
-3. Generación de MIC
+- Uso doméstico y pequeñas empresas
+- Contraseña compartida **(PSK)**
+- Cifrado de **128 bits**
+- **Protección** contra ataques offline
 
 ---
 
-## Configuración Segura WPA2
+### WPA3-Enterprise
 
-### Mejores Prácticas
+**Características:**
 
-**Contraseña**
-
-- Longitud mínima: 12 caracteres
-- Combinar letras, números y símbolos
-- Cambiar periódicamente
-
-**Punto de Acceso**
-
-- Ocultar SSID (opcional)
-- Deshabilitar WPS
-- Actualizar firmware
-- Filtrado MAC (opcional)
-
-**Enterprise**
-
-- Certificados válidos en servidor RADIUS
-- Métodos EAP seguros (TLS, PEAP)
-- Políticas de contraseñas robustas
-- Monitoreo de conexiones
+- Organizaciones grandes
+- Cifrado de **192 bits**
+- **Autenticación individual** por usuario
+- **Certificados digitales**
+- Protección adicional para datos **sensibles**
 
 ---
 
-## Vulnerabilidades y Ataques
+## Mejoras de Seguridad
 
-### Ataques Conocidos
+### Protección contra KRACK
 
-- **Diccionario**: captura del handshake y prueba de contraseñas comunes
-- **KRACK**: reutilización de nonces, mitigado con parches
-- **Desautenticación**: forzar reconexión de clientes para capturar handshakes
+**Características:**
 
-### Medidas de Protección
-
-- Detección de intrusiones
-- Segmentación de red (VLANs, aislamiento)
-- Monitoreo continuo
+- **Problema:** Key Reinstallation Attacks en WPA2
+- **Solución:** nuevo protocolo SAE
+- **Resultado:** eliminación de vulnerabilidades conocidas
 
 ---
 
-## Herramientas de Análisis
+### Cifrado Mejorado
 
-### Auditoría
+**Especificaciones:**
+
+- Algoritmo: **AES-256** en modo GCM
+- Mayor **resistencia** a ataques criptográficos
+- Mejora significativa sobre **AES-128** de WPA2
+
+---
+
+## Implementación
+
+### Configuración WPA3-Personal
+
+**Archivo hostapd.conf:**
 
 ```bash
-airmon-ng start wlan0
-airodump-ng wlan0mon
-aireplay-ng -0 10 -a [BSSID] wlan0mon
-aircrack-ng -w wordlist.txt capture.cap
-hashcat -m 2500 -a 0 capture.hccapx wordlist.txt
-wireshark -i wlan0mon
-```
-
-### Laboratorio
-
-```bash
-sudo airmon-ng start wlan0
-sudo airodump-ng wlan0mon
-sudo tcpdump -i wlan0mon
-sudo aireplay-ng --test wlan0mon
+interface=wlan0
+driver=nl80211
+ssid=MiRedWPA3
+hw_mode=g
+channel=7
+wmm_enabled=1
+macaddr_acl=0
+auth_algs=1
+ignore_broadcast_ssid=0
+wpa=2
+wpa_passphrase=MiContraseñaSegura123
+wpa_key_mgmt=SAE
+wpa_pairwise=CCMP
+rsn_pairwise=CCMP
 ```
 
 ---
 
-## Migración a WPA3
+## Compatibilidad
 
-### Diferencias
+### Modo Transición (WPA3/WPA2)
 
-- SAE (Simultaneous Authentication of Equals)
-- Protección contra ataques offline
-- Forward Secrecy
-- Autenticación mejorada
+**Consideraciones:**
 
-### Consideraciones
+- Soporte para dispositivos **legacy**
+- **Implementación gradual** recomendada
+- Posible **degradación** de seguridad en modo mixto
 
-- Compatibilidad con dispositivos legacy
-- Configuración dual WPA2/WPA3
-- Evaluación de beneficios
+---
+
+### Requisitos de Hardware
+
+**Necesidades:**
+
+- Chips Wi-Fi que soporten **WPA3**
+- **Actualización** de firmware en dispositivos existentes
+- **Certificación** por Wi-Fi Alliance
+
+---
+
+## Comparación WPA2 vs WPA3
+
+|Característica|WPA2|WPA3|
+|---|---|---|
+|**Handshake**|4-way handshake|SAE|
+|**Cifrado**|AES-128|AES-128/256|
+|**Protección offline**|Vulnerable|Protegido|
+|**Forward Secrecy**|No|Sí|
+|**Ataques KRACK**|Vulnerable|Inmune|
+
+---
+
+## Mejores Prácticas
+
+**Recomendaciones:**
+
+- Migrar a **WPA3-Personal** para uso doméstico
+- Usar **WPA3-Enterprise** con cifrado de 192 bits para entornos corporativos
+- Implementar **modo transición** (WPA3/WPA2) durante migración
+- **Actualizar firmware** de dispositivos regularmente
+- **Verificar certificación** Wi-Fi Alliance en nuevos dispositivos
+- Usar **contraseñas fuertes** (mínimo 12 caracteres)
+- **Deshabilitar WPA2** puro cuando todos los dispositivos soporten WPA3
 
 ---

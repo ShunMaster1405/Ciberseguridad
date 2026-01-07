@@ -147,7 +147,7 @@
 - [[Deep-Sound]]
 - [[dirsearch]]
 - [[DVWA]]
-- [[Exiftool]]
+- [[exiftool]]
 - [[Fake-AP]]
 - [[Nikto]]
 - [[Nmap]]
@@ -197,3 +197,12 @@
 #### 📂 Configuracion
 
 - [[Configuración de Bash Shell]]
+
+## 🛡️ 05-Operaciones-Seguridad
+
+- [[Cortex XSIAM]]
+- [[Elementos SOC 1]]
+- [[Elementos SOC 2]]
+- [[Introduccion SOC]]
+- [[SOAR]]
+- [[XSOAR y gestión de inteligencia de amenazas]]

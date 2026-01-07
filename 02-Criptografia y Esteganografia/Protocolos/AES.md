@@ -1,6 +1,7 @@
 ## Introducción
 
-**AES (Advanced Encryption Standard)** es un algoritmo de cifrado simétrico adoptado por el gobierno de Estados Unidos como estándar de cifrado.  
+**AES (Advanced Encryption Standard)** es un algoritmo de cifrado simétrico adoptado por el gobierno de Estados Unidos como estándar de cifrado.
+
 Reemplazó al DES y es ampliamente utilizado en todo el mundo.
 
 ---
@@ -9,55 +10,98 @@ Reemplazó al DES y es ampliamente utilizado en todo el mundo.
 
 ### Especificaciones
 
-- Algoritmo: Rijndael
+**Información básica:**
+
+- Algoritmo: **Rijndael**
 - Tipo: Cifrado de bloque simétrico
-- Tamaño de bloque: 128 bits
-- Tamaños de clave: 128, 192, 256 bits
-- Número de rondas: 10, 12, 14 (según tamaño de clave)
-
-### Operaciones Fundamentales
-
-**1. SubBytes**
-
-- Sustitución no lineal
-- Utiliza la S-box
-- Proporciona confusión
-
-**2. ShiftRows**
-
-- Desplazamiento cíclico de filas
-- Proporciona difusión
-
-**3. MixColumns**
-
-- Transformación lineal de columnas
-- Usa aritmética en campos finitos
-- Aumenta la difusión
-
-**4. AddRoundKey**
-
-- XOR con la clave de ronda
-- Incorpora la clave secreta
-- Operación reversible
+- Tamaño de bloque: **128 bits**
+- Tamaños de clave: **128, 192, 256 bits**
+- Número de rondas: **10, 12, 14** (según tamaño de clave)
 
 ---
 
-### Proceso de Cifrado AES
+### Operaciones Fundamentales
+
+#### **1. SubBytes**
+
+**Función:** Sustitución no lineal
+
+**Características:**
+
+- Utiliza la S-box (Substitution box)
+- Proporciona **confusión**
+- Operación byte a byte
+
+---
+
+#### **2. ShiftRows**
+
+**Función:** Desplazamiento cíclico de filas
+
+**Características:**
+
+- Proporciona **difusión**
+- Cada fila se desplaza diferente cantidad
+
+---
+
+#### **3. MixColumns**
+
+**Función:** Transformación lineal de columnas
+
+**Características:**
+
+- Usa aritmética en campos finitos GF(2^8)
+- Aumenta la **difusión**
+- No se aplica en la ronda final
+
+---
+
+#### **4. AddRoundKey**
+
+**Función:** XOR con la clave de ronda
+
+**Características:**
+
+- Incorpora la clave secreta
+- Operación reversible
+- Único paso que usa la clave
+
+---
+
+## Proceso de Cifrado AES
+
+### AES-128 (10 rondas)
+
+**Pasos:**
 
 ```text
-AES-128:
-1. Expansión de clave
-2. Ronda inicial: AddRoundKey
+1. Expansión de clave (Key Schedule)
+
+2. Ronda inicial:
+   - AddRoundKey
+
 3. 9 rondas principales:
    - SubBytes
    - ShiftRows
    - MixColumns
    - AddRoundKey
+
 4. Ronda final:
    - SubBytes
    - ShiftRows
-   - AddRoundKey
+   - AddRoundKey (sin MixColumns)
 ```
+
+---
+
+### Variantes según Longitud de Clave
+
+|Clave|Rondas|Nivel de Seguridad|
+|---|---|---|
+|**AES-128**|10|Alto|
+|**AES-192**|12|Muy alto|
+|**AES-256**|14|Máximo|
 
 ---
 
@@ -65,51 +109,86 @@ AES-128:
 
 ### ECB (Electronic Codebook)
 
+**Características:**
+
 - Cada bloque se cifra independientemente
 - Patrones visibles en datos similares
-- No recomendado para uso general
+- **No recomendado** para uso general
+
+**Uso:** Solo para datos aleatorios pequeños
+
+---
 
 ### CBC (Cipher Block Chaining)
 
+**Características:**
+
 - Cada bloque se XOR con el anterior
-- Requiere vector de inicialización (IV)
+- Requiere **IV** (Initialization Vector)
 - Propaga errores
+- **Modo más común**
+
+**Ventajas:** Oculta patrones
+
+**Desventajas:** No paralelizable para cifrado
+
+---
 
 ### CFB (Cipher Feedback)
 
+**Características:**
+
 - Convierte cifrado de bloque en flujo
-- Permite cifrado de datos menores al bloque
+- Permite cifrar datos menores al bloque
 - Propaga errores
 
+---
+
 ### OFB (Output Feedback)
+
+**Características:**
 
 - Genera flujo de claves independiente
 - No propaga errores
 - Requiere IV único
 
+---
+
 ### CTR (Counter)
 
+**Características:**
+
 - Utiliza contador para generar flujo
-- Paralelizable
+- **Paralelizable** (cifrado y descifrado)
 - Acceso aleatorio a datos
+- No propaga errores
 
-### GCM (Galois/Counter Mode)
-
-- Cifrado autenticado
-- Proporciona integridad y autenticación
-- Altamente eficiente
+**Ventajas:** Alto rendimiento
 
 ---
 
-## Implementación y Optimización
+### GCM (Galois/Counter Mode)
 
-### Implementación por Software
+**Características:**
+
+- **Cifrado autenticado** (AEAD)
+- Proporciona integridad y autenticación
+- Altamente eficiente
+- **Recomendado** para uso moderno
+
+**Ventajas:** Seguridad + rendimiento
+
+---
+
+## Implementación
+
+### Estructura Básica (C)
 
 ```c
 typedef struct {
-    uint8_t state[4][4];
-    uint8_t key[16];
-    uint8_t round_keys[176];
+    uint8_t state[4][4];      // Estado interno
+    uint8_t key[16];          // Clave original
+    uint8_t round_keys[176];  // Claves de ronda
 } AES_ctx;
 
 void AES_init(AES_ctx* ctx, const uint8_t* key);
@@ -117,17 +196,31 @@ void AES_encrypt(AES_ctx* ctx, uint8_t* data);
 void AES_decrypt(AES_ctx* ctx, uint8_t* data);
 ```
 
+---
+
 ### Optimización por Hardware
 
-- Instrucciones AES-NI en procesadores Intel/AMD
-- Aceleración significativa del rendimiento
-- Implementaciones dedicadas en FPGA/ASIC
+**AES-NI (Intel/AMD):**
+
+- Instrucciones dedicadas de CPU
+- Aceleración de 5-10x
+- Resistente a ataques de timing
+
+**Otras implementaciones:**
+
+- FPGA para alto throughput
+- ASIC para dispositivos dedicados
+
+---
 
 ### Implementación Segura
 
-- Protección contra ataques de canal lateral
-- Tiempo de ejecución constante
-- Gestión segura de claves
+**Consideraciones:**
+
+- **Tiempo constante** (prevenir timing attacks)
+- **Protección** contra ataques de canal lateral
+- **Gestión segura** de claves en memoria
+- **Limpiar** claves después de uso
 
 ---
 
@@ -135,17 +228,24 @@ void AES_decrypt(AES_ctx* ctx, uint8_t* data);
 
 ### Resistencia a Ataques
 
-- Criptoanálisis diferencial: resistente
-- Criptoanálisis lineal: resistente
-- Fuerza bruta: inviable
-- Ataques de canal lateral: requieren mitigación
+**Ataques conocidos:**
+
+- **Criptoanálisis diferencial:** resistente
+- **Criptoanálisis lineal:** resistente
+- **Fuerza bruta:** inviable (AES-128 = 2^128 combinaciones)
+- **Ataques de canal lateral:** requieren mitigación
+
+---
 
 ### Consideraciones de Seguridad
 
-- Uso de claves de longitud adecuada
-- Gestión segura de IV
-- Protección de claves en memoria
-- Validación de entrada
+**Mejores prácticas:**
+
+- Usar claves de **longitud adecuada** (mínimo 128 bits)
+- **IV único y aleatorio** para cada operación
+- **Proteger claves** en memoria (no en disco sin cifrar)
+- **Validar entrada** antes de procesar
+- Usar **modos autenticados** (GCM) cuando sea posible
 
 ---
 
@@ -153,16 +253,81 @@ void AES_decrypt(AES_ctx* ctx, uint8_t* data);
 
 ### Estándares y Protocolos
 
-- WPA2/WPA3 (seguridad inalámbrica)
-- IPSec (seguridad de redes)
-- SSL/TLS (comunicaciones web)
-- SSH (acceso remoto seguro)
+**Seguridad de redes:**
+
+- **WPA2/WPA3** - WiFi
+- **IPSec** - VPN
+- **SSL/TLS** - HTTPS
+- **SSH** - acceso remoto
+
+---
 
 ### Aplicaciones Comerciales
 
-- Cifrado de discos duros
-- Comunicaciones móviles
-- Servicios en la nube
-- Aplicaciones bancarias
+**Uso común:**
+
+- **Cifrado de disco** (BitLocker, FileVault)
+- **Comunicaciones móviles** (4G, 5G)
+- **Servicios cloud** (AWS, Azure, GCP)
+- **Aplicaciones bancarias** y financieras
+- **Mensajería** (Signal, WhatsApp)
+
+---
+
+## Comparación con Otros Algoritmos
+
+|Algoritmo|Tamaño Bloque|Tamaño Clave|Estado|
+|---|---|---|---|
+|**DES**|64 bits|56 bits|Obsoleto|
+|**3DES**|64 bits|168 bits|En desuso|
+|**AES**|128 bits|128/192/256 bits|**Actual**|
+|**ChaCha20**|- (flujo)|256 bits|Moderno|
+
+---
+
+## Mejores Prácticas
+
+### Selección de Parámetros
+
+**Longitud de clave:**
+
+- **AES-128:** suficiente para mayoría de casos
+- **AES-256:** datos muy sensibles o largo plazo
+
+**Modo de operación:**
+
+- **GCM:** primera opción (autenticado)
+- **CBC:** alternativa si GCM no disponible
+- **Evitar ECB:** siempre
+
+---
+
+### Gestión de Claves
+
+**Generación:**
+
+- Usar **CSPRNG** (generador criptográfico)
+- **Nunca** derivar de contraseñas sin KDF
+
+**Almacenamiento:**
+
+- **HSM** para claves críticas
+- **Cifrar** claves en reposo
+- **No** hardcodear en código fuente
+
+**Rotación:**
+
+- **Política** de rotación periódica
+- **Revocar** claves comprometidas inmediatamente
+
+---
+
+## Consideraciones
+
+- AES es el **estándar de facto** para cifrado simétrico
+- Usar **implementaciones probadas** (OpenSSL, libsodium)
+- **No** implementar AES manualmente sin experiencia
+- Usar **modos autenticados** para prevenir manipulación
+- **Actualizar** bibliotecas criptográficas regularmente
 
 ---

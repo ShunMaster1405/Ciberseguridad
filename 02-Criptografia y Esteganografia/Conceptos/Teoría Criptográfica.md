@@ -1,13 +1,26 @@
 ## ¿Qué es la Criptografía?
 
-La criptografía es la ciencia que se encarga de proteger la información mediante técnicas de cifrado, asegurando que solo las personas autorizadas puedan acceder a ella.
+La **criptografía** es la ciencia que se encarga de proteger la información mediante técnicas de cifrado, asegurando que solo las personas autorizadas puedan acceder a ella.
 
-**Objetivos principales:**
+---
 
-- Confidencialidad: proteger la información de accesos no autorizados
-- Integridad: garantizar que la información no ha sido alterada
-- Autenticación: verificar la identidad del emisor
-- No repudio: evitar que el emisor niegue haber enviado la información
+## Objetivos Principales de la Criptografía
+
+### Confidencialidad
+
+Proteger la información de **accesos no autorizados** y mantener el contenido privado.
+
+### Integridad
+
+Garantizar que la información **no ha sido alterada** durante su almacenamiento o transmisión.
+
+### Autenticación
+
+Verificar la **identidad del emisor** y confirmar el origen legítimo de la información.
+
+### No Repudio
+
+Evitar que el emisor pueda **negar haber enviado** la información o realizar una acción.
 
 ---
 
@@ -15,23 +28,56 @@ La criptografía es la ciencia que se encarga de proteger la información median
 
 ### Terminología Básica
 
-- **Texto plano (Plaintext)**: Información original sin cifrar
-- **Texto cifrado (Ciphertext)**: Información después del proceso de cifrado
-- **Clave (Key)**: Valor utilizado para cifrar y descifrar información
-- **Algoritmo**: Método matemático utilizado para el cifrado
-- **Cifrado**: Proceso de convertir texto plano en texto cifrado
-- **Descifrado**: Proceso inverso de convertir texto cifrado en texto plano
+#### **Texto plano (Plaintext)**
+
+- Información original **sin cifrar**
+- Legible y comprensible
+
+#### **Texto cifrado (Ciphertext)**
+
+- Información **después del proceso de cifrado**
+- Ilegible sin la clave correcta
+
+#### **Clave (Key)**
+
+- Valor utilizado para **cifrar y descifrar** información
+- Debe mantenerse secreta
+
+#### **Algoritmo**
+
+- Método matemático utilizado para el cifrado
+- Puede ser público
+
+#### **Cifrado**
+
+- Proceso de convertir **texto plano en texto cifrado**
+- También llamado encriptación
+
+#### **Descifrado**
+
+- Proceso inverso de convertir **texto cifrado en texto plano**
+- También llamado desencriptación
 
 ---
 
-### Principios de Kerckhoffs
+## Principios de Kerckhoffs
 
-1. El sistema debe ser prácticamente, si no matemáticamente, indescifrable
-2. No debe requerir secreto y puede caer en manos del enemigo sin inconvenientes
-3. La clave debe ser comunicable y retenible sin ayuda escrita
-4. Debe ser aplicable a las comunicaciones telegráficas
-5. Debe ser portátil y su uso no debe requerir varias personas
-6. Debe ser fácil de usar
+Los **Principios de Kerckhoffs** establecen los fundamentos de la seguridad criptográfica moderna, enfatizando que la seguridad debe residir en la clave, no en el secreto del algoritmo.
+
+### Los Seis Principios
+
+1. El sistema debe ser **prácticamente indescifrable**, si no matemáticamente
+    
+2. **No debe requerir secreto** y puede caer en manos del enemigo sin inconvenientes
+    
+3. La clave debe ser **comunicable y retenible** sin ayuda escrita
+    
+4. Debe ser aplicable a las **comunicaciones telegráficas** (o modernas)
+    
+5. Debe ser **portátil** y su uso no debe requerir varias personas
+    
+6. Debe ser **fácil de usar** sin gran esfuerzo mental
+    
 
 ---
 
@@ -39,16 +85,43 @@ La criptografía es la ciencia que se encarga de proteger la información median
 
 ### Criptografía Clásica
 
-- **Cifrado por sustitución**: reemplaza caracteres por otros
-- **Cifrado por transposición**: cambia el orden de los caracteres
-- **Cifrado César**: desplaza letras del alfabeto un número fijo de posiciones
+Métodos históricos de cifrado utilizados antes de la era computacional.
+
+#### **Cifrado por Sustitución**
+
+- Reemplaza caracteres por otros
+- Ejemplo: A→D, B→E, C→F
+
+#### **Cifrado por Transposición**
+
+- Cambia el **orden de los caracteres**
+- Mantiene los caracteres originales
+
+#### **Cifrado César**
+
+- Desplaza letras del alfabeto un **número fijo de posiciones**
+- Ejemplo: desplazamiento de 3 posiciones
 
 ---
 
 ### Criptografía Moderna
 
-- **Cifrado de bloque**: procesa datos en bloques de tamaño fijo
-- **Cifrado de flujo**: procesa datos bit a bit o byte a byte
-- **Criptografía cuántica**: utiliza principios de la mecánica cuántica
+Sistemas criptográficos basados en computación y matemáticas avanzadas.
+
+#### **Cifrado de Bloque**
+
+- Procesa datos en **bloques de tamaño fijo**
+- Ejemplos: AES, DES
+
+#### **Cifrado de Flujo**
+
+- Procesa datos **bit a bit** o byte a byte
+- Más rápido para datos en streaming
+
+#### **Criptografía Cuántica**
+
+- Utiliza principios de la **mecánica cuántica**
+- Promete seguridad absoluta
+- Tecnología emergente
 
 ---
