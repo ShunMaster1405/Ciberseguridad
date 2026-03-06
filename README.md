@@ -22,7 +22,7 @@ Este repositorio fue estructurado para visualizarse y organizarse correctamente 
   
 Todo lo relacionado con hacking ético, seguridad ofensiva y defensiva.
 
-#### Subcategorías:
+#### Subcategorías: 
 
 - **Análisis de Malware e Ingeniería Inversa**
   - Terminologías y Propagación de Malware
