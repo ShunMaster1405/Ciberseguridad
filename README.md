@@ -19,7 +19,7 @@ Este repositorio fue estructurado para visualizarse y organizarse correctamente 
 ## 📚 Índice General
 
 ### Ciberseguridad
-
+  
 Todo lo relacionado con hacking ético, seguridad ofensiva y defensiva.
 
 #### Subcategorías:
